@@ -13,7 +13,7 @@ export function List(props) {
         <TouchableOpacity onPress={ () => props.doneHandler(item.id) }>
           <Icon name="check" color={ Colours.secondary }/>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={ () => props.deleteHandler(item.id) }>
           <Icon name="delete" color={ Colours.tertiary }/>
         </TouchableOpacity>
       </View>

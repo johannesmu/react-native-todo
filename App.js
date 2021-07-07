@@ -24,15 +24,29 @@ export default function App() {
   const markItemDone = ( itemId ) => {
     console.log( itemId )
     // find the item by id
-    // change the status of item
-    // setData( new array containing done item)
+    let items = data
+    items.forEach( (item) => {
+      if( item.id.toString() === itemId ) {
+        // if the id matches, change the status
+        item.status = true
+      }
+    })
+    // set the items array as the data
+    setData( items )
+  }
+
+  const deleteItem = ( itemId ) => {
+    console.log( itemId )
+    // find item by id
+    // remove
+    // setData( new array without item )
   }
 
 
   return (
     <View style={styles.container}>
       <Header name={ appDefintion.name } addHandler={addItem}/>
-      <List listItems={data} doneHandler={markItemDone}/>
+      <List listItems={data} doneHandler={markItemDone} deleteHandler={deleteItem} />
     </View>
   );
 }
