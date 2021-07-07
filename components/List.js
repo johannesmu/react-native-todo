@@ -25,7 +25,7 @@ export function List(props) {
       <FlatList 
       data={ props.listItems } 
       renderItem={ Renderer} 
-      keyExtractor={ item => item.id } 
+      keyExtractor={ item => item.id.toString() } 
     />
     </View>
   )

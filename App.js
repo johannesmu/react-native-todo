@@ -23,26 +23,26 @@ export default function App() {
   }
 
   const markItemDone = ( itemId ) => {
-    //console.log( itemId )
-    // find the item by id
-    let items = data.map( (item) => {
+    const items = [...data] // [ {item1} , {item2} ]
+    items.forEach( (item) => {
       if(item.id === itemId ) {
-        // let updated = { name: item.name, id: item.id , status: true }
-        console.log( item )
-        return item
+        item.status = true
       }
     })
-    
-    //console.log( items )
     // set the items array as the data
     setData( items )
   }
 
   const deleteItem = ( itemId ) => {
-    console.log( itemId )
-    // find item by id
-    // remove
-    // setData( new array without item )
+    //console.log( itemId )
+    // copy the data state
+    const items = [...data]
+    items.forEach( (item,index) => {
+      if(item.id === itemId ) {
+        items.splice( index, 1 )
+      }
+    })
+    setData( items )
   }
 
 
