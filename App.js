@@ -21,7 +21,12 @@ export default function App() {
     setData( data.concat(Item) )
   }
 
-  const markItemDone = ( itemId ) => {}
+  const markItemDone = ( itemId ) => {
+    console.log( itemId )
+    // find the item by id
+    // change the status of item
+    // setData( new array containing done item)
+  }
 
 
   return (

@@ -10,7 +10,7 @@ export function List(props) {
     <View style={ListStyle.listItem}>
       <Text>{item.name}</Text>
       <View style={ListStyle.buttons}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={ () => props.doneHandler(item.id) }>
           <Icon name="check" color={ Colours.secondary }/>
         </TouchableOpacity>
         <TouchableOpacity>
