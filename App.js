@@ -14,23 +14,26 @@ const appDefintion = {
 export default function App() {
   const [data,setData] = useState([])
 
+  // useEffect( () => {console.log(data)}, [data] )
   
   const addItem = ( itemName) => {
-    const itemId = new Date().getTime()
-    const Item = { name: itemName, id: itemId, status: false }
+    let itemId = new Date().getTime()
+    let Item = { name: itemName, id: itemId, status: false }
     setData( data.concat(Item) )
   }
 
   const markItemDone = ( itemId ) => {
-    console.log( itemId )
+    //console.log( itemId )
     // find the item by id
-    let items = data
-    items.forEach( (item) => {
-      if( item.id.toString() === itemId ) {
-        // if the id matches, change the status
-        item.status = true
+    let items = data.map( (item) => {
+      if(item.id === itemId ) {
+        // let updated = { name: item.name, id: item.id , status: true }
+        console.log( item )
+        return item
       }
     })
+    
+    //console.log( items )
     // set the items array as the data
     setData( items )
   }

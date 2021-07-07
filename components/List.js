@@ -7,7 +7,7 @@ import { Icon } from 'react-native-elements'
 export function List(props) {
 
   const Renderer = ({item}) => (
-    <View style={ListStyle.listItem}>
+    <View style={ (item.status === true) ? ListStyle.listItemDone : ListStyle.listItem}>
       <Text>{item.name}</Text>
       <View style={ListStyle.buttons}>
         <TouchableOpacity onPress={ () => props.doneHandler(item.id) }>
@@ -25,7 +25,7 @@ export function List(props) {
       <FlatList 
       data={ props.listItems } 
       renderItem={ Renderer} 
-      keyExtractor={ item => item.id.toString() } 
+      keyExtractor={ item => item.id } 
     />
     </View>
   )
@@ -34,6 +34,14 @@ export function List(props) {
 const ListStyle = StyleSheet.create( {
   listItem: {
     backgroundColor: Colours.light,
+    marginVertical: 4,
+    fontSize: 18,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  listItemDone: {
+    backgroundColor: Colours.tertiary,
     marginVertical: 4,
     fontSize: 18,
     display: 'flex',
