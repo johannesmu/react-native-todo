@@ -21,11 +21,13 @@ export default function App() {
     setData( data.concat(Item) )
   }
 
+  const markItemDone = ( itemId ) => {}
+
 
   return (
     <View style={styles.container}>
       <Header name={ appDefintion.name } addHandler={addItem}/>
-      <List listItems={data}/>
+      <List listItems={data} doneHandler={markItemDone}/>
     </View>
   );
 }

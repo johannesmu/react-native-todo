@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { Colours } from './Colours';
-
+import { Icon } from 'react-native-elements'
 
 
 export function List(props) {
@@ -9,12 +9,12 @@ export function List(props) {
   const Renderer = ({item}) => (
     <View style={ListStyle.listItem}>
       <Text>{item.name}</Text>
-      <View>
+      <View style={ListStyle.buttons}>
         <TouchableOpacity>
-          <Text>done</Text>
+          <Icon name="check" color={ Colours.secondary }/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>delete</Text>
+          <Icon name="delete" color={ Colours.tertiary }/>
         </TouchableOpacity>
       </View>
     </View>
@@ -39,5 +39,9 @@ const ListStyle = StyleSheet.create( {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 })
