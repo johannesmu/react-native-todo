@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useState,useEffect} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {Colours} from './components/Colours'
 import {Header} from './components/Header'
@@ -11,10 +12,20 @@ const appDefintion = {
   name: "Hello List",
 }
 
+const storageKey = 'listdata'
+
 export default function App() {
   const [data,setData] = useState([])
 
-  // useEffect( () => {console.log(data)}, [data] )
+  useEffect( () => {
+    if( !data ) {
+      // read from storage
+      // setData( data from storage )
+    }
+    else {
+      // save into storage
+    }
+  }, [data] )
   
   const addItem = ( itemName) => {
     let itemId = new Date().getTime()
